@@ -1,53 +1,29 @@
-package SimpleShoppingApplication;
+package com.nit_29May;
 
-public class Product {
-	 private int id;
-	 private String name;
-	 private double price;
-	 private int quantity;
-	
-	public Product(int id, String name, double price, int quantity)
-	{
-	    super();
-		this.id = id;
-		this.name = name;
-		this.price = price;
-		this.quantity = quantity;
-	      }
-	
-		public int getId()
-		{
-		return id;
-	     }
+public class Product implements Comparable<Product>{
+	private Integer Number;
+	private String  Name;
+	  private Double  Price;
+	  
+	  public Product(Integer Number, String Name, Double Price) {
+		  this.Number= Number;
+		  this.Name=Name;
+		  this.Price=Price;
+		  
+	  }
 
-        public String getName() 
-         {
-		return name;
-	     }
+	@Override
+	public String toString() {
+		return "Product [Number=" + Number + ", Name=" + Name + ", Price=" + Price + "]\n";
+	}
 
-        public double getPrice() 
-        {
-		return price;
-	    }
-
-        public int getQuantity()
-        {
-		return quantity;
-	    }
-
-          public void decreaseQuantity(int amount) throws InsufficientQuantityException{
-			if(amount>quantity) 
-			{
-				throw new InsufficientQuantityException("Insufficient quantity:");
-			}
-			else 
-			{
-				quantity= quantity-amount;
-				System.out.println("Current quantity is :"+quantity);
-				
-				
-			}
-		}
+	@Override
+	public int compareTo(Product o) {
+		
+		return this.Name.compareTo(o.Name); //return (int)(this.Price-o.Price);
+	}
 	
 
+	
 }
+   
