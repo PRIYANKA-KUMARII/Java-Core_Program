@@ -1,36 +1,24 @@
-package MultiThreading_Scenario_Array_1May;
+package com.nit;
+
+import java.util.Iterator;
+import java.util.Vector;
 
 public class Main {
-public static void main(String[] args) {
-//	Thread1 student= new Thread();
-	
-	 Course [] course= {new Course(1,"Math",2000),
-	                      new Course(2, "Science", 3000)};
-	 
-	 Offer []offer= {new Offer("def"),      
-			        new Offer("Chem")};
-	 }
-	 
-	 EducationInstitute institute=new EducationInstitute(courses, Offers);
-	 Student s1= new Student("Virat", institute);
-	 Student s2= new
-			 Thread th1= new Thread(() -> {
-				 s1.viewCourseAndFee();
-				 s1.viewOffer();
-				 s1.enrollInCourse(1);
-			 });
-	 Thread th2= new Thread(() ->{
+	public static void main(String [] args) throws InterruptedException {
+		 Vector<String>listOfCity= new Vector<>();
+		 listOfCity.add("Surat");
+		 listOfCity.add("Pune");
+		 listOfCity.add("Ahmabad");
+		 listOfCity.add("Vanaras");
+		 listOfCity.add("Hyderabad");
+		 Concurrent cons= new Concurrent(listOfCity);
+		 cons.start();
+		 Iterator<String>itr=listOfCity.iterator();
+		 while(itr.hasNext()) {
+			 System.out.println(itr.next());
+			 Thread.sleep(500);
+		 }
 		 
-	 Course result[]= institute.getCourse();
-	   for(int i=0;i<result.length;i++) {
-		    System.out.println(result[i]);
-	   }
-	   
-	   System.out.println("------------------------------");
-	   
-	  Offer result1[]= institute.getOffer();
-	  for(int i=0;i<result1.length;i++) {
-		    System.out.println(result1[i]);
-	   }
-}
+	}
+
 }
